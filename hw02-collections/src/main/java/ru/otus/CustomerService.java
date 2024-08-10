@@ -8,6 +8,9 @@ public class CustomerService {
 
     public Map.Entry<Customer, String> getSmallest() {
         var fEntry = map.firstEntry();
+        if (fEntry == null) {
+            return null;
+        }
         var fKey = fEntry.getKey();
         return new AbstractMap.SimpleEntry<>(
                 new Customer(fKey.getId(), fKey.getName(), fKey.getScores()), fEntry.getValue());
